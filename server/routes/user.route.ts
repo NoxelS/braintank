@@ -26,8 +26,13 @@ router.get('/', async (req: Request, mainres: Response, next: NextFunction) => {
 router.get('/all', async (req: Request, mainres: Response, next: NextFunction) => {
     try {
         getUserJsons((err, res) => {
-            const users = res.map((r: any) => JSON.parse(r.json));
-            mainres.json(users);
+            if (res && !err) {
+                const users = res.map((r: any) => JSON.parse(r.json));
+                mainres.json(users);
+            } else {
+              console.log(err);
+              const users = [];
+            }
         });
     } catch (err) {
         next(err);
