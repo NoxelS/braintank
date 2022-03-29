@@ -29,7 +29,7 @@ router.get('/', async (req: Request, mainres: Response, next: NextFunction) => {
             next(err);
         }
     } else {
-        mainres.json([]);
+        mainres.json(undefined);
     }
 });
 

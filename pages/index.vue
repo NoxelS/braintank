@@ -40,7 +40,6 @@
             fetch('/api/user').then(async data => {
                 this.user = await data.json();
                 this.isLoggedIn = !!this.user;
-                console.log(this.user);
             });
             fetch('/api/user/all').then(async data => {
                 this.allUsers = await data.json();
