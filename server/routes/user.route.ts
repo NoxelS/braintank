@@ -8,14 +8,18 @@ const router = express.Router();
 router.get('/', async (req: Request, mainres: Response, next: NextFunction) => {
     try {
         getUserJsons((err, res) => {
-            const users = res.map((r: any) => JSON.parse(r.json));
-            if (!users.find((user: any) => user.nickname == (req as any).oidc.user.nickname)) {
-                storeUserJson(mainPool, JSON.stringify((req as any).oidc.user), (err, res) => {
-                    console.log(users);
-                    mainres.json((req as any).oidc.user);
-                });
+            if (err) {
+                next(err);
             } else {
-                mainres.json((req as any).oidc.user);
+                const users = res.map((r: any) => JSON.parse(r.json));
+                if (!users.find((user: any) => user.nickname == (req as any).oidc.user.nickname)) {
+                    storeUserJson(mainPool, JSON.stringify((req as any).oidc.user), (err, res) => {
+                        console.log(users);
+                        mainres.json((req as any).oidc.user);
+                    });
+                } else {
+                    mainres.json((req as any).oidc.user);
+                }
             }
         });
     } catch (err) {
@@ -30,8 +34,8 @@ router.get('/all', async (req: Request, mainres: Response, next: NextFunction) =
                 const users = res.map((r: any) => JSON.parse(r.json));
                 mainres.json(users);
             } else {
-              console.log(err);
-              const users = [];
+                console.log(err);
+                const users = [];
             }
         });
     } catch (err) {
