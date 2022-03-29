@@ -1,0 +1,11 @@
+{
+    "nuxt.isNuxtApp": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#353e46",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#4b5863",
+        "statusBarItem.remoteBackground": "#353e46",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "tab.activeBorder": "#353e46"
+    }
+}
