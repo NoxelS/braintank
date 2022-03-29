@@ -4,18 +4,14 @@
             You are not logged in
         </div>
         <div class="h2" v-if="isLoggedIn">
-            Hello {{ user.name }}
+            All users:
             <div class="info">
-                <span>The following info I gathered:</span>
-                <span>Email: {{ user.email }}</span>
-                <span>Verified Email: {{ user.email_verified }}</span>
-                <span>family_name: {{ user.family_name }}</span>
-                <span>given_name: {{ user.given_name }}</span>
-                <span>name: {{ user.name }}</span>
-                <span>nickname: {{ user.nickname }}</span>
-                <span>picture: <img width="60px" height="60px" :src="user.picture" /></span>
-                <span>sub: {{ user.sub }}</span>
-                <span>updated_at: {{ user.updated_at }}</span>
+                <a class="user" target="_blank" v-for="u in allUsers" :key="u.nickname" :href="`https://www.linkedin.com/search/results/all/?keywords=${u.name}`">
+                    <span>
+                        {{ u.name }}
+                    </span>
+                    <img width="40px" height="40px" :src="u.picture" />
+                </a>
             </div>
         </div>
         <div class="row">
@@ -34,7 +30,8 @@
         data() {
             return {
                 user: null,
-                isLoggedIn: false
+                isLoggedIn: false,
+                allUsers: []
             };
         },
 
@@ -44,6 +41,9 @@
                 this.user = await data.json();
                 this.isLoggedIn = !!this.user;
                 console.log(this.user);
+            });
+            fetch('/api/user/all').then(async data => {
+                this.allUsers = await data.json();
             });
         },
 
@@ -68,5 +68,22 @@
         flex-direction: column;
         width: 400px;
         justify-content: flex-start;
+    }
+    .info a {
+        border-radius: 10px;
+        margin-top: 10px;
+        width: 250px;
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0.05);
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .info img {
+        border-radius: 100%;
     }
 </style>

@@ -19,11 +19,13 @@
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
+    "@types/mysql": "^2.15.21",
     "cross-env": "^7.0.2",
     "dotenv": "^16.0.0",
     "element-ui": "^2.13.2",
     "express": "^4.17.1",
     "express-openid-connect": "^2.7.2",
+    "mysql": "^2.18.1",
     "nuxt": "^2.14.1",
     "reflect-metadata": "^0.1.13",
     "typedi": "^0.8.0"
