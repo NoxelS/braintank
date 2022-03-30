@@ -13,6 +13,7 @@
                         <th>Email</th>
                         <th>Verified?</th>
                         <th>Auth</th>
+                        <th>Last Updated</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                         <td>{{user.email}}</td>
                         <td>{{user.email_verified}}</td>
                         <td>{{user.sub ? user.sub.split('|')[0] : 'n/a'}}</td>
+                        <td>{{user.updated_at}}</td>
                     </tr>
                 </tbody>
             </table>
