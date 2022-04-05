@@ -53,7 +53,7 @@
         justify-content: flex-start;
         height: 100vh;
         width: 100vw;
-        overflow: hidden;
+        overflow: auto;
         top: 0;
         left: 0;
         > .main-content {

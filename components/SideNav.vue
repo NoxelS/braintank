@@ -1,7 +1,7 @@
 <template>
     <div class="side-nav" :class="drawerOpen ? 'active' : ''">
         <div class="nav-icon" @click="drawerOpen = !drawerOpen">
-            <menu-icon :fillColor="drawerOpen ? '#fff' : '#333'" />
+            <menu-icon :size="35" :fillColor="drawerOpen ? '#fff' : '#333'" />
         </div>
         <div class="drawer">
             <h2>Braintank</h2>

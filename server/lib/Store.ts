@@ -59,3 +59,9 @@ export function storeUserJson(pool: Pool, jsonString: string, callback: (error: 
 export function getUserJsons(callback: (error: any, result: any) => void) {
     mainPool.query('SELECT * FROM braintank.user_json;', callback);
 }
+
+
+export function getMx5Data(callback: (error: any, result: any) => void) {
+    mainPool.query("SELECT * FROM `ebay-prices`.mx5;", callback);
+}
+
