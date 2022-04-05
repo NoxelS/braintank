@@ -21,6 +21,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@types/mysql": "^2.15.21",
     "apexcharts": "^3.35.0",
+    "chart.js": "^3.7.1",
     "cross-env": "^7.0.2",
     "dotenv": "^16.0.0",
     "element-ui": "^2.13.2",
@@ -34,6 +35,7 @@
     "trading-vue-js": "^1.0.2",
     "typedi": "^0.8.0",
     "vue-apexcharts": "^1.6.2",
+    "vue-chartjs": "^4.0.4",
     "vue-material-design-icons": "^5.0.0",
     "vue3-apexcharts": "^1.4.1"
   },
